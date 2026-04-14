@@ -1,0 +1,1068 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Creama — Artisan Sweets & Custom Cakes | New Orleans</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Nunito:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --cream:     #fdf6ee;
+      --ivory:     #fff9f2;
+      --beige:     #f5e9d9;
+      --beige2:    #eedfc8;
+      --rose:      #c9788a;
+      --rose-lt:   #e8b4be;
+      --rose-bg:   #fdf0f2;
+      --sage:      #8aaa8a;
+      --sage-lt:   #c5d9c5;
+      --gold:      #c9954a;
+      --gold-lt:   #e8c48a;
+      --brown:     #2d1a0e;
+      --brown2:    #5a3e2b;
+      --muted:     #9a7e6a;
+      --border:    #e4d0bb;
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Nunito', sans-serif;
+      background: var(--cream);
+      color: var(--brown);
+      overflow-x: hidden;
+    }
+
+    ::-webkit-scrollbar { width: 5px; }
+    ::-webkit-scrollbar-track { background: var(--beige); }
+    ::-webkit-scrollbar-thumb { background: var(--rose-lt); border-radius: 10px; }
+
+    /* ── NAV ─────────────────────────────────────────── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 22px 64px;
+      background: rgba(253,246,238,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid transparent;
+      transition: all 0.4s;
+    }
+    nav.scrolled {
+      padding: 14px 64px;
+      border-bottom-color: var(--border);
+      background: rgba(253,246,238,0.97);
+    }
+    .nav-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.9rem; font-weight: 700; font-style: italic;
+      color: var(--brown); text-decoration: none; letter-spacing: 0.02em;
+    }
+    .nav-logo span { color: var(--rose); }
+    .nav-links { display: flex; gap: 34px; list-style: none; }
+    .nav-links a {
+      color: var(--brown2); text-decoration: none;
+      font-size: 0.78rem; letter-spacing: 0.14em; text-transform: uppercase;
+      font-weight: 600; opacity: 0.75; transition: opacity 0.2s, color 0.2s;
+    }
+    .nav-links a:hover { opacity: 1; color: var(--rose); }
+    .nav-btn {
+      background: var(--rose); color: #fff;
+      padding: 10px 26px; border-radius: 50px;
+      font-family: 'Nunito', sans-serif; font-size: 0.78rem;
+      letter-spacing: 0.12em; text-transform: uppercase; font-weight: 600;
+      text-decoration: none; transition: all 0.3s;
+      box-shadow: 0 4px 15px rgba(201,120,138,0.3);
+    }
+    .nav-btn:hover { background: var(--brown); box-shadow: none; }
+
+    /* ── HERO ────────────────────────────────────────── */
+    .hero {
+      min-height: 100vh; position: relative;
+      display: flex; align-items: center; justify-content: center;
+      overflow: hidden; text-align: center;
+    }
+    /* Mosaic photo background */
+    .hero-mosaic {
+      position: absolute; inset: 0;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: repeat(2, 1fr);
+      gap: 3px;
+    }
+    .hero-mosaic div {
+      background-size: cover; background-position: center;
+      filter: brightness(0.55) saturate(0.8);
+    }
+    .hm1 { background-image: url('graduation-cake.png'); }
+    .hm2 { background-image: url('flower-cupcakes.png'); }
+    .hm3 { background-image: url('macarons.png'); }
+    .hm4 { background-image: url('baby-shower-cake.png'); }
+    .hm5 { background-image: url('dessert-table.png'); }
+    .hm6 { background-image: url('dubai-chocolate.png'); }
+    .hm7 { background-image: url('petit-fours.png'); }
+    .hm8 { background-image: url('kaak.png'); }
+
+    .hero-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(
+        to bottom,
+        rgba(253,246,238,0.15) 0%,
+        rgba(253,246,238,0.05) 40%,
+        rgba(253,246,238,0.4) 100%
+      );
+    }
+    .hero-content {
+      position: relative; z-index: 2;
+      max-width: 780px; padding: 0 24px;
+    }
+    .hero-badge {
+      display: inline-block;
+      background: rgba(253,246,238,0.92);
+      color: var(--rose); border: 1px solid var(--rose-lt);
+      font-size: 0.68rem; letter-spacing: 0.28em; text-transform: uppercase;
+      font-weight: 700; padding: 7px 18px; border-radius: 50px;
+      margin-bottom: 24px;
+      opacity: 0; animation: fadeUp 0.9s 0.3s forwards;
+    }
+    .hero-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(4.5rem, 10vw, 9rem);
+      font-weight: 700; font-style: italic;
+      color: #fff; line-height: 1;
+      text-shadow: 0 4px 30px rgba(45,26,14,0.5);
+      margin-bottom: 8px;
+      opacity: 0; animation: fadeUp 0.9s 0.5s forwards;
+    }
+    .hero-title span { color: var(--rose-lt); }
+    .hero-sub {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.1rem, 2.5vw, 1.55rem);
+      font-weight: 300; font-style: italic;
+      color: rgba(255,255,255,0.9);
+      margin-bottom: 38px; line-height: 1.5;
+      opacity: 0; animation: fadeUp 0.9s 0.7s forwards;
+    }
+    .hero-actions {
+      display: flex; gap: 14px; justify-content: center; flex-wrap: wrap;
+      opacity: 0; animation: fadeUp 0.9s 0.9s forwards;
+    }
+    .btn-rose {
+      background: var(--rose); color: #fff;
+      padding: 14px 34px; border-radius: 50px;
+      font-size: 0.8rem; letter-spacing: 0.14em; text-transform: uppercase;
+      font-weight: 600; text-decoration: none;
+      box-shadow: 0 6px 20px rgba(201,120,138,0.45);
+      transition: all 0.3s;
+    }
+    .btn-rose:hover { background: var(--brown); box-shadow: none; transform: translateY(-2px); }
+    .btn-ghost {
+      background: rgba(255,255,255,0.15); color: #fff;
+      border: 1.5px solid rgba(255,255,255,0.55);
+      padding: 14px 34px; border-radius: 50px;
+      font-size: 0.8rem; letter-spacing: 0.14em; text-transform: uppercase;
+      font-weight: 600; text-decoration: none; backdrop-filter: blur(4px);
+      transition: all 0.3s;
+    }
+    .btn-ghost:hover { background: rgba(255,255,255,0.25); transform: translateY(-2px); }
+    .hero-scroll {
+      position: absolute; bottom: 32px; left: 50%; transform: translateX(-50%);
+      display: flex; flex-direction: column; align-items: center; gap: 6px;
+      color: rgba(255,255,255,0.6); font-size: 0.6rem; letter-spacing: 0.25em;
+      text-transform: uppercase;
+      animation: fadeIn 1s 1.5s both;
+    }
+    .scroll-dot {
+      width: 6px; height: 6px; background: var(--rose-lt);
+      border-radius: 50%; animation: bounce 1.8s infinite;
+    }
+
+    /* ── SECTION SHARED ──────────────────────────────── */
+    section { padding: 90px 64px; }
+    .section-eyebrow {
+      display: block; text-align: center;
+      font-size: 0.68rem; letter-spacing: 0.3em; text-transform: uppercase;
+      color: var(--rose); font-weight: 700; margin-bottom: 12px;
+    }
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 4vw, 3rem); font-weight: 600;
+      text-align: center; color: var(--brown); line-height: 1.15;
+      margin-bottom: 14px;
+    }
+    .section-title em { font-style: italic; color: var(--rose); }
+    .section-desc {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.15rem; font-style: italic; font-weight: 300;
+      color: var(--muted); text-align: center;
+      max-width: 520px; margin: 0 auto 56px; line-height: 1.7;
+    }
+    .ornament {
+      display: flex; align-items: center; gap: 14px;
+      justify-content: center; margin-bottom: 48px;
+    }
+    .ornament::before, .ornament::after {
+      content: ''; flex: 1; max-width: 90px; height: 1px;
+      background: linear-gradient(to right, transparent, var(--border));
+    }
+    .ornament::after { background: linear-gradient(to left, transparent, var(--border)); }
+    .ornament svg { width: 16px; height: 16px; color: var(--rose-lt); fill: currentColor; }
+
+    /* ── ABOUT ───────────────────────────────────────── */
+    .about {
+      background: var(--ivory);
+      display: grid; grid-template-columns: 1fr 1fr; gap: 0;
+      padding: 0;
+    }
+    .about-img {
+      position: relative; overflow: hidden; min-height: 520px;
+    }
+    .about-img img {
+      width: 100%; height: 100%; object-fit: cover;
+      display: block; transition: transform 0.6s ease;
+    }
+    .about-img:hover img { transform: scale(1.04); }
+    .about-img-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to right, transparent 60%, var(--ivory) 100%);
+      pointer-events: none;
+    }
+    .about-body {
+      padding: 80px 72px;
+      display: flex; flex-direction: column; justify-content: center;
+      background: var(--ivory);
+    }
+    .about-body .section-eyebrow { text-align: left; margin-bottom: 10px; }
+    .about-body h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 3vw, 2.6rem);
+      font-weight: 600; color: var(--brown); margin-bottom: 24px;
+      line-height: 1.2; text-align: left;
+    }
+    .about-body h2 em { color: var(--rose); font-style: italic; }
+    .about-body p {
+      font-size: 0.95rem; color: var(--muted); line-height: 1.9;
+      font-weight: 400; margin-bottom: 16px;
+    }
+    .about-sig {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem; font-style: italic; color: var(--rose);
+      margin-top: 20px;
+    }
+    .about-pills {
+      display: flex; gap: 10px; flex-wrap: wrap; margin-top: 28px;
+    }
+    .pill {
+      background: var(--rose-bg); color: var(--rose);
+      border: 1px solid var(--rose-lt); border-radius: 50px;
+      padding: 6px 16px; font-size: 0.75rem; font-weight: 600;
+      letter-spacing: 0.08em;
+    }
+
+    /* ── GALLERY ─────────────────────────────────────── */
+    .gallery { background: var(--cream); }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: repeat(3, 240px);
+      gap: 10px;
+      max-width: 1280px; margin: 0 auto;
+    }
+    .gi {
+      position: relative; overflow: hidden; border-radius: 12px;
+      cursor: pointer; background: var(--beige);
+    }
+    .gi img {
+      width: 100%; height: 100%; object-fit: cover;
+      display: block; transition: transform 0.6s ease;
+    }
+    .gi:hover img { transform: scale(1.08); }
+    .gi-overlay {
+      position: absolute; inset: 0; border-radius: 12px;
+      background: linear-gradient(to top, rgba(45,26,14,0.72) 0%, transparent 55%);
+      opacity: 0; transition: opacity 0.4s;
+      display: flex; align-items: flex-end; padding: 18px;
+    }
+    .gi:hover .gi-overlay { opacity: 1; }
+    .gi-overlay h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 0.95rem; font-weight: 600; color: #fff;
+      font-style: italic;
+    }
+    .gi-overlay span {
+      display: block; font-size: 0.65rem; color: var(--rose-lt);
+      letter-spacing: 0.15em; text-transform: uppercase; margin-top: 2px;
+    }
+    /* layout spans */
+    .gi.tall  { grid-row: span 2; }
+    .gi.wide  { grid-column: span 2; }
+
+    /* ── PERKS STRIP ─────────────────────────────────── */
+    .perks {
+      background: var(--rose);
+      padding: 56px 64px;
+    }
+    .perks-grid {
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      gap: 2px; max-width: 1100px; margin: 0 auto;
+    }
+    .perk {
+      text-align: center; padding: 36px 28px;
+      background: rgba(255,255,255,0.1);
+      border-radius: 8px; margin: 4px;
+      transition: background 0.3s;
+    }
+    .perk:hover { background: rgba(255,255,255,0.18); }
+    .perk-icon {
+      width: 48px; height: 48px; border-radius: 50%;
+      background: rgba(255,255,255,0.2);
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 16px;
+    }
+    .perk-icon svg { width: 22px; height: 22px; stroke: #fff; fill: none; stroke-width: 1.8; }
+    .perk h3 { font-size: 0.95rem; font-weight: 700; color: #fff; margin-bottom: 8px; }
+    .perk p { font-size: 0.82rem; color: rgba(255,255,255,0.8); line-height: 1.6; font-weight: 400; }
+
+    /* ── MENU ────────────────────────────────────────── */
+    .menu { background: var(--ivory); }
+    .tab-bar {
+      display: flex; gap: 8px; justify-content: center;
+      flex-wrap: wrap; margin-bottom: 52px;
+    }
+    .tab-btn {
+      background: transparent; border: 1.5px solid var(--border);
+      color: var(--muted); padding: 9px 22px; border-radius: 50px;
+      font-family: 'Nunito', sans-serif; font-size: 0.78rem;
+      letter-spacing: 0.1em; text-transform: uppercase; font-weight: 600;
+      cursor: pointer; transition: all 0.3s;
+    }
+    .tab-btn.active, .tab-btn:hover {
+      background: var(--rose); border-color: var(--rose);
+      color: #fff; box-shadow: 0 4px 14px rgba(201,120,138,0.3);
+    }
+    .tab-panel { display: none; max-width: 1060px; margin: 0 auto; }
+    .tab-panel.active { display: block; }
+    .panel-intro {
+      text-align: center; margin-bottom: 40px;
+    }
+    .panel-intro h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.6rem; font-style: italic; color: var(--brown); margin-bottom: 6px;
+    }
+    .panel-intro p { font-size: 0.88rem; color: var(--muted); font-weight: 400; line-height: 1.6; }
+    .menu-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3px; }
+    .menu-row {
+      display: flex; align-items: flex-start; justify-content: space-between;
+      padding: 20px 26px; background: var(--cream);
+      border-left: 3px solid transparent;
+      transition: all 0.25s;
+    }
+    .menu-row:hover { border-left-color: var(--rose); background: var(--rose-bg); }
+    .mr-info h4 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem; font-weight: 600; color: var(--brown); margin-bottom: 4px;
+    }
+    .mr-info p { font-size: 0.8rem; color: var(--muted); line-height: 1.55; }
+    .mr-badge {
+      display: inline-block; margin-top: 6px;
+      background: var(--rose-bg); color: var(--rose);
+      font-size: 0.6rem; letter-spacing: 0.12em; text-transform: uppercase;
+      padding: 3px 9px; border-radius: 50px; font-weight: 700;
+    }
+    .mr-price {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.25rem; font-weight: 600; color: var(--rose);
+      white-space: nowrap; margin-left: 20px; padding-top: 2px;
+    }
+
+    /* ── REVIEWS ─────────────────────────────────────── */
+    .reviews { background: var(--beige); }
+    .reviews-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 20px; max-width: 1080px; margin: 0 auto;
+    }
+    .review-card {
+      background: var(--ivory); border-radius: 16px;
+      padding: 36px 32px;
+      box-shadow: 0 4px 24px rgba(90,62,43,0.07);
+      transition: transform 0.3s;
+    }
+    .review-card:hover { transform: translateY(-4px); }
+    .stars { color: var(--rose); font-size: 0.9rem; letter-spacing: 0.1em; margin-bottom: 14px; }
+    .review-card blockquote {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.05rem; font-style: italic; font-weight: 300;
+      color: var(--brown2); line-height: 1.8; margin-bottom: 20px;
+    }
+    .review-author { font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--rose); font-weight: 700; }
+
+    /* ── ORDER ───────────────────────────────────────── */
+    .order {
+      background: var(--cream); text-align: center;
+    }
+    .order-wrap { max-width: 620px; margin: 0 auto; }
+    .order-form {
+      background: var(--ivory); border-radius: 20px;
+      padding: 40px; margin-top: 8px;
+      box-shadow: 0 8px 40px rgba(90,62,43,0.09);
+      display: grid; gap: 14px; text-align: left;
+    }
+    .order-form input,
+    .order-form select,
+    .order-form textarea {
+      background: var(--cream); border: 1.5px solid var(--border);
+      color: var(--brown); padding: 13px 18px; border-radius: 10px;
+      font-family: 'Nunito', sans-serif; font-size: 0.88rem; font-weight: 400;
+      outline: none; transition: border-color 0.3s; width: 100%;
+    }
+    .order-form input:focus,
+    .order-form select:focus,
+    .order-form textarea:focus { border-color: var(--rose); }
+    .order-form input::placeholder,
+    .order-form textarea::placeholder { color: #c0a890; }
+    .order-form select { cursor: pointer; color: var(--brown); }
+    .order-form select option { background: var(--cream); color: var(--brown); }
+    .order-form textarea { resize: vertical; min-height: 90px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .btn-submit {
+      background: var(--rose); color: #fff; border: none;
+      padding: 15px; border-radius: 10px; width: 100%;
+      font-family: 'Nunito', sans-serif; font-size: 0.85rem;
+      letter-spacing: 0.14em; text-transform: uppercase; font-weight: 700;
+      cursor: pointer; transition: all 0.3s;
+      box-shadow: 0 6px 20px rgba(201,120,138,0.35);
+    }
+    .btn-submit:hover { background: var(--brown); box-shadow: none; }
+    .order-note {
+      text-align: center; font-size: 0.78rem; color: var(--muted);
+      margin-top: 14px; line-height: 1.7;
+    }
+
+    /* ── FOOTER ──────────────────────────────────────── */
+    footer {
+      background: var(--brown);
+      color: rgba(253,246,238,0.8);
+      padding: 64px 64px 36px;
+      display: grid;
+      grid-template-columns: 1.6fr 1fr 1fr 1fr;
+      gap: 40px;
+    }
+    .footer-brand .logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.1rem; font-weight: 700; font-style: italic;
+      color: var(--cream); display: block; margin-bottom: 14px;
+    }
+    .footer-brand .logo span { color: var(--rose-lt); }
+    .footer-brand p {
+      font-size: 0.85rem; line-height: 1.8; font-weight: 300;
+      color: rgba(253,246,238,0.6); max-width: 230px; margin-bottom: 22px;
+    }
+    .social-row { display: flex; gap: 10px; }
+    .social-btn {
+      width: 36px; height: 36px; border-radius: 50%;
+      background: rgba(253,246,238,0.1); border: 1px solid rgba(253,246,238,0.2);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--cream); text-decoration: none; transition: all 0.3s;
+    }
+    .social-btn:hover { background: var(--rose); border-color: var(--rose); }
+    .social-btn svg { width: 15px; height: 15px; stroke: currentColor; fill: none; stroke-width: 2; }
+    .footer-col h4 {
+      font-size: 0.65rem; letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--rose-lt); margin-bottom: 18px; font-weight: 700;
+    }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .footer-col ul a {
+      color: rgba(253,246,238,0.6); text-decoration: none;
+      font-size: 0.84rem; font-weight: 300; transition: color 0.2s;
+    }
+    .footer-col ul a:hover { color: var(--rose-lt); }
+    .footer-col address { font-style: normal; font-size: 0.84rem; color: rgba(253,246,238,0.6); font-weight: 300; line-height: 1.9; }
+    .footer-col address a { color: var(--rose-lt); text-decoration: none; }
+    .footer-bottom {
+      border-top: 1px solid rgba(253,246,238,0.1);
+      margin-top: 36px; padding-top: 20px;
+      grid-column: 1 / -1;
+      display: flex; justify-content: space-between;
+      font-size: 0.72rem; color: rgba(253,246,238,0.35);
+    }
+
+    /* ── ANIMATIONS ──────────────────────────────────── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(22px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 0.7; } }
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50%       { transform: translateY(6px); }
+    }
+    .reveal {
+      opacity: 0; transform: translateY(28px);
+      transition: opacity 0.75s ease, transform 0.75s ease;
+    }
+    .reveal.visible { opacity: 1; transform: none; }
+    .rd1 { transition-delay: 0.1s; }
+    .rd2 { transition-delay: 0.2s; }
+    .rd3 { transition-delay: 0.3s; }
+
+    /* ── RESPONSIVE ──────────────────────────────────── */
+    @media (max-width: 1024px) {
+      nav, nav.scrolled { padding: 18px 28px; }
+      section { padding: 70px 28px; }
+      .about { grid-template-columns: 1fr; }
+      .about-img { min-height: 300px; }
+      .about-body { padding: 48px 32px; }
+      .gallery-grid { grid-template-columns: repeat(2, 1fr); grid-template-rows: auto; }
+      .gi.tall, .gi.wide { grid-row: span 1; grid-column: span 1; }
+      .gallery-grid .gi { height: 240px; }
+      .perks-grid { grid-template-columns: repeat(2, 1fr); }
+      .menu-grid { grid-template-columns: 1fr; }
+      .reviews-grid { grid-template-columns: 1fr; }
+      footer { grid-template-columns: 1fr 1fr; }
+      .nav-links { display: none; }
+    }
+    @media (max-width: 640px) {
+      .gallery-grid { grid-template-columns: 1fr; }
+      .perks-grid { grid-template-columns: 1fr; }
+      .form-row { grid-template-columns: 1fr; }
+      footer { grid-template-columns: 1fr; }
+      .footer-bottom { flex-direction: column; gap: 6px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="#" class="nav-logo">Crea<span>ma</span></a>
+  <ul class="nav-links">
+    <li><a href="#about">Our Story</a></li>
+    <li><a href="#gallery">Gallery</a></li>
+    <li><a href="#menu">Menu</a></li>
+    <li><a href="#order">Order</a></li>
+  </ul>
+  <a href="#order" class="nav-btn">Order Now</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-mosaic">
+    <div class="hm1"></div><div class="hm2"></div>
+    <div class="hm3"></div><div class="hm4"></div>
+    <div class="hm5"></div><div class="hm6"></div>
+    <div class="hm7"></div><div class="hm8"></div>
+  </div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <span class="hero-badge">✦ New Orleans, Louisiana ✦</span>
+    <h1 class="hero-title">Crea<span>ma</span></h1>
+    <p class="hero-sub">
+      Handcrafted cakes, chocolates &amp; artisan sweets<br>
+      made with love for life's sweetest moments.
+    </p>
+    <div class="hero-actions">
+      <a href="#menu" class="btn-rose">Explore Menu</a>
+      <a href="#gallery" class="btn-ghost">View Gallery</a>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <span>Scroll</span>
+    <div class="scroll-dot"></div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="about-img">
+    <img src="flower-cupcakes.png" alt="Creama flower cupcakes" />
+    <div class="about-img-overlay"></div>
+  </div>
+  <div class="about-body reveal">
+    <span class="section-eyebrow">Our Story</span>
+    <h2>Made with <em>heart</em>,<br>served with love.</h2>
+    <p>
+      Creama was born from a lifelong passion for bringing people together through
+      beautiful, delicious food. Based in the heart of New Orleans — a city that
+      lives and breathes celebration — every creation we make carries that same
+      spirit of warmth and joy.
+    </p>
+    <p>
+      From hand-piped floral cakes to velvety Dubai chocolate, delicate French
+      macarons, and treasured Middle Eastern sweets, each order is crafted fresh
+      with the finest ingredients and designed just for you.
+    </p>
+    <div class="about-sig">— Creama, New Orleans</div>
+    <div class="about-pills">
+      <span class="pill">Made Fresh</span>
+      <span class="pill">Fully Custom</span>
+      <span class="pill">Premium Ingredients</span>
+      <span class="pill">NOLA Proud</span>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="gallery" id="gallery">
+  <span class="section-eyebrow reveal">Portfolio</span>
+  <h2 class="section-title reveal">Our <em>Creations</em></h2>
+  <div class="ornament reveal">
+    <svg viewBox="0 0 24 24"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z"/></svg>
+  </div>
+
+  <div class="gallery-grid">
+
+    <div class="gi tall reveal">
+      <img src="graduation-cake.png" alt="Graduation Cake" />
+      <div class="gi-overlay">
+        <div><h3>Graduation Cake</h3><span>Custom Cakes</span></div>
+      </div>
+    </div>
+
+    <div class="gi reveal rd1">
+      <img src="baby-shower-cake.png" alt="Baby Shower Cake" />
+      <div class="gi-overlay">
+        <div><h3>Baby Shower Cake</h3><span>Custom Cakes</span></div>
+      </div>
+    </div>
+
+    <div class="gi reveal rd2">
+      <img src="macarons.png" alt="French Macarons" />
+      <div class="gi-overlay">
+        <div><h3>French Macarons</h3><span>Gift Boxes</span></div>
+      </div>
+    </div>
+
+    <div class="gi wide reveal rd3">
+      <img src="dessert-table.png" alt="Dessert Table" />
+      <div class="gi-overlay">
+        <div><h3>Floral Cupcakes</h3><span>Events & Catering</span></div>
+      </div>
+    </div>
+
+    <div class="gi reveal">
+      <img src="petit-fours.png" alt="Petit Fours" />
+      <div class="gi-overlay">
+        <div><h3>Petit Fours</h3><span>Gift Boxes</span></div>
+      </div>
+    </div>
+
+    <div class="gi tall reveal rd1">
+      <img src="flower-cupcakes.png" alt="Flower Cupcakes" />
+      <div class="gi-overlay">
+        <div><h3>Floral Cupcakes</h3><span>Cupcakes</span></div>
+      </div>
+    </div>
+
+    <div class="gi reveal rd2">
+      <img src="dubai-chocolate.png" alt="Dubai Chocolate" />
+      <div class="gi-overlay">
+        <div><h3>Dubai Chocolate</h3><span>Signature Chocolates</span></div>
+      </div>
+    </div>
+
+    <div class="gi reveal rd3">
+      <img src="kaak.png" alt="Ka'ak Ring Cookies" />
+      <div class="gi-overlay">
+        <div><h3>Ka'ak</h3><span>Traditional Sweets</span></div>
+      </div>
+    </div>
+
+
+    <div class="gi reveal rd1">
+      <img src="nautical-cake.png" alt="Nautical Baby Cake" />
+      <div class="gi-overlay">
+        <div><h3>Nautical Baby Cake</h3><span>Custom Cakes</span></div>
+      </div>
+    </div>
+
+    <div class="gi reveal rd2">
+      <img src="dessert-tower.png" alt="3-Tier Dessert Tower" />
+      <div class="gi-overlay">
+        <div><h3>Dessert Tower</h3><span>Gift Arrangements</span></div>
+      </div>
+    </div>
+
+    <div class="gi reveal rd3">
+      <img src="choco-bars.png" alt="Chocolate Bars" />
+      <div class="gi-overlay">
+        <div><h3>Artisan Chocolate Bars</h3><span>Chocolates</span></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- PERKS STRIP -->
+<section class="perks">
+  <div class="perks-grid">
+    <div class="perk reveal">
+      <div class="perk-icon">
+        <svg viewBox="0 0 24 24"><path d="M12 22s-8-4.5-8-11.8A8 8 0 0 1 12 2a8 8 0 0 1 8 8.2c0 7.3-8 11.8-8 11.8z"/></svg>
+      </div>
+      <h3>Premium Ingredients</h3>
+      <p>Only the finest, freshest ingredients go into every creation — no shortcuts, ever.</p>
+    </div>
+    <div class="perk reveal rd1">
+      <div class="perk-icon">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+      </div>
+      <h3>Made Fresh to Order</h3>
+      <p>Never frozen, never pre-made. Each order is crafted fresh just for you.</p>
+    </div>
+    <div class="perk reveal rd2">
+      <div class="perk-icon">
+        <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+      </div>
+      <h3>Fully Customizable</h3>
+      <p>Your vision, your flavors, your design — we bring every idea to life.</p>
+    </div>
+    <div class="perk reveal rd3">
+      <div class="perk-icon">
+        <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+      </div>
+      <h3>New Orleans Proud</h3>
+      <p>Born in NOLA — infused with the city's love of celebration and community.</p>
+    </div>
+  </div>
+</section>
+
+<!-- MENU -->
+<section class="menu" id="menu">
+  <span class="section-eyebrow reveal">What We Make</span>
+  <h2 class="section-title reveal">Our <em>Menu</em></h2>
+  <p class="section-desc reveal">Handcrafted to order. Every price reflects our commitment to freshness, quality, and artistry.</p>
+
+  <div class="tab-bar reveal">
+    <button class="tab-btn active" onclick="showTab('cakes',this)">Custom Cakes</button>
+    <button class="tab-btn" onclick="showTab('cupcakes',this)">Cupcakes</button>
+    <button class="tab-btn" onclick="showTab('choco',this)">Chocolates</button>
+    <button class="tab-btn" onclick="showTab('sweets',this)">Pastries & Sweets</button>
+    <button class="tab-btn" onclick="showTab('gifts',this)">Gift Boxes</button>
+    <button class="tab-btn" onclick="showTab('events',this)">Events</button>
+  </div>
+
+  <!-- CAKES -->
+  <div class="tab-panel active" id="tab-cakes">
+    <div class="panel-intro">
+      <h3>Custom Celebration Cakes</h3>
+      <p>Fully designed around your vision — flavors, tiers, themes, and florals tailored to your occasion.<br>Minimum 5 days notice required. Rush orders accepted based on availability.</p>
+    </div>
+    <div class="menu-grid">
+      <div class="menu-row">
+        <div class="mr-info"><h4>Single-Tier Custom Cake</h4><p>Serves 10–15. Pick your flavor, filling & design. Hand-piped buttercream finish.</p><span class="mr-badge">Most Popular</span></div>
+        <div class="mr-price">From $120</div>
+      </div>
+      <div class="menu-row">
+        <div class="mr-info"><h4>Two-Tier Custom Cake</h4><p>Serves 20–30. Fully custom design, multiple flavor options, fondant or buttercream.</p></div>
+        <div class="mr-price">From $220</div>
+      </div>
+      <div class="menu-row">
+        <div class="mr-info"><h4>Three-Tier Custom Cake</h4><p>Serves 40–55. A statement showpiece for weddings, quinceañeras & large events.</p><span class="mr-badge">Weddings</span></div>
+        <div class="mr-price">From $380</div>
+      </div>
+      <div class="menu-row">
+        <div class="mr-info"><h4>Dubai Chocolate Cake</h4><p>Signature pistachio Dubai chocolate layers, kunafa crunch filling & chocolate ganache drip.</p><span class="mr-badge">Signature</span></div>
+        <div class="mr-price">From $160</div>
+      </div>
+      <div class="menu-row">
+        <div class="mr-info"><h4>Fresh Berry Chantilly</h4><p>Light vanilla sponge, whipped cream cheese frosting, fresh seasonal berries on top.</p></div>
+        <div class="mr-price">From $130</div>
+      </div>
+      <div class="menu-row">
+        <div class="mr-info"><h4>Floral Buttercream Cake</h4><p>Stunning hand-piped floral arrangement in your chosen color palette.</p><span class="mr-badge">Best Seller</span></div>
+        <div class="mr-price">From $145</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CUPCAKES -->
+  <div class="tab-panel" id="tab-cupcakes">
+    <div class="panel-intro">
+      <h3>Cupcakes & Mini Treats</h3>
+      <p>Each one hand-crafted. Beautiful as centerpieces or individual favors. Minimum order: 12 pieces.</p>
+    </div>
+    <div class="menu-grid">
+      <div class="menu-row">
+        <div class="mr-info"><h4>Flower Garden Cupcakes</h4><p>Hand-piped Korean-style buttercream flowers, each unique. Pearl accents available.</p><span class="mr-badge">Signature</span></div>
+        <div class="mr-price">$6.50 each</div>
+      </div>
+      <div class="menu-row">
+        <div class="mr-info"><h4>Classic Decorated Cupcakes</h4><p>Swirled buttercream with custom toppers, sprinkles & themed decorations.</p></div>
+        <div class="mr-price">$4.50 each</div>
+      </div>
+      <div class="menu-row">
+        <div class="mr-info"><h4>Dubai Chocolate Cupcakes</h4><p>Rich chocolate base filled with pistachio cream, topped with kunafa drizzle.</p></div>
+        <div class="mr-price">$7 each</div>
+      </div>
+      <div class="menu-row">
+        <div class="mr-info"><h4>Cake Pops</h4><p>Moist cake mixed with frosting, dipped in chocolate. Fully customizable.</p></div>
+        <div class="mr-price">$4 each</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CHOCOLATE -->
+  <div class="tab-panel" id="tab-choco">
+    <div class="panel-intro">
+      <h3>Artisan Chocolates</h3>
+      <p>Handcrafted from premium couverture chocolate. Custom flavors and packaging available.</p>
+    </div>
+    <div class="menu-grid">
+      <div class="menu-row">
+        <div class="mr-info"><h4>Dubai Chocolate Bar</h4><p>Viral pistachio-kunafa filled bar in dark, milk, or white chocolate. Gold-dusted finish.</p><span class="mr-badge">Trending</span></div>
+        <div class="mr-price">$18 / bar</div>
+      </div>
+      <div class="menu-row">
+        <div class="mr-info"><h4>Artisan Chocolate Bar</h4><p>Choose your toppings: rose petals, pistachio, sea salt, caramel, or classic.</p></div>
+        <div class="mr-price">$14 / bar</div>
+      </div>
+      <div class="menu-row">
+        <div class="mr-info"><h4>Arabic Coffee Chocolates</h4><p>White & dark chocolate shaped as dallah & finjan. A gorgeous gift set.</p><span class="mr-badge">Gift Favorite</span></div>
+        <div class="mr-price">$22 / set (10 pcs)</div>
+      </div>
+      <div class="menu-row">
+        <div class="mr-info"><h4>Gourmet Truffles Box</h4><p>Assorted truffles in seasonal flavors. Available in 12 or 24 piece boxes.</p></div>
+        <div class="mr-price">From $28</div>
+      </div>
+      <div class="menu-row">
+        <div class="mr-info"><h4>Chocolate Bar Gift Set</h4><p>3 artisan bars gift-wrapped — perfect for any occasion or corporate gifting.</p></div>
+        <div class="mr-price">$40 / set</div>
+      </div>
+      <div class="menu-row">
+        <div class="mr-info"><h4>Molded Chocolate Figurines</h4><p>Custom shapes for events — hearts, logos, flowers & more.</p></div>
+        <div class="mr-price">POA</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SWEETS -->
+  <div class="tab-panel" id="tab-sweets">
+    <div class="panel-intro">
+      <h3>Pastries & Traditional Sweets</h3>
+      <p>French classics and beloved Middle Eastern traditions — made with pure authenticity.</p>
+    </div>
+    <div class="menu-grid">
+      <div class="menu-row">
+        <div class="mr-info"><h4>French Macarons</h4><p>Delicate almond meringue shells in rotating seasonal flavors. Min. 12 pieces.</p><span class="mr-badge">Fan Favorite</span></div>
+        <div class="mr-price">$3.50 each</div>
+      </div>
+      <div class="menu-row">
+        <div class="mr-info"><h4>Baklava</h4><p>Crisp phyllo, roasted pistachios, rose-infused honey syrup. Made fresh per order.</p></div>
+        <div class="mr-price">$28 / dozen</div>
+      </div>
+      <div class="menu-row">
+        <div class="mr-info"><h4>Petit Fours</h4><p>Bite-sized layered cakes finished in chocolate glaze. Assorted flavors. Min 20 pcs.</p></div>
+        <div class="mr-price">$3 each</div>
+      </div>
+      <div class="menu-row">
+        <div class="mr-info"><h4>Ka'ak Ring Cookies</h4><p>Traditional sesame & nigella seed ring cookies — a family recipe. Perfect for Eid.</p><span class="mr-badge">Seasonal</span></div>
+        <div class="mr-price">$18 / dozen</div>
+      </div>
+      <div class="menu-row">
+        <div class="mr-info"><h4>Mamoul</h4><p>Date, walnut, or pistachio filled semolina cookies — a Middle Eastern classic.</p></div>
+        <div class="mr-price">$20 / dozen</div>
+      </div>
+      <div class="menu-row">
+        <div class="mr-info"><h4>Kunafa</h4><p>Golden shredded pastry, creamy cheese filling, fragrant rose water syrup.</p></div>
+        <div class="mr-price">From $35</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- GIFTS -->
+  <div class="tab-panel" id="tab-gifts">
+    <div class="panel-intro">
+      <h3>Gift Boxes & Arrangements</h3>
+      <p>Beautifully curated and elegantly packaged. Perfect for weddings, holidays & corporate gifting.</p>
+    </div>
+    <div class="menu-grid">
+      <div class="menu-row">
+        <div class="mr-info"><h4>Sweet Treats Box (Small)</h4><p>A curated mix of macarons, petit fours & chocolates. Serves 2–3.</p></div>
+        <div class="mr-price">$35</div>
+      </div>
+      <div class="menu-row">
+        <div class="mr-info"><h4>Luxury Gift Box (Large)</h4><p>Premium assortment: Dubai bars, truffles, baklava & cookies. Serves 6–8.</p><span class="mr-badge">Best Gifting</span></div>
+        <div class="mr-price">$75</div>
+      </div>
+      <div class="menu-row">
+        <div class="mr-info"><h4>3-Tier Dessert Tower</h4><p>A breathtaking stacked display of mixed sweets, chocolates & cookies. Floral décor included.</p><span class="mr-badge">Showstopper</span></div>
+        <div class="mr-price">From $110</div>
+      </div>
+      <div class="menu-row">
+        <div class="mr-info"><h4>Wedding Favor Boxes</h4><p>Custom branded mini boxes of your chosen sweets. Personalized ribbon & tag included.</p></div>
+        <div class="mr-price">From $8 each</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- EVENTS -->
+  <div class="tab-panel" id="tab-events">
+    <div class="panel-intro">
+      <h3>Events & Dessert Catering</h3>
+      <p>We design breathtaking dessert experiences for weddings, baby showers, birthdays & corporate events across New Orleans.</p>
+    </div>
+    <div class="menu-grid">
+      <div class="menu-row">
+        <div class="mr-info"><h4>Dessert Table (Up to 30 Guests)</h4><p>Styled table with custom cake, cupcakes, macarons, chocolates & signage. Setup included.</p></div>
+        <div class="mr-price">From $450</div>
+      </div>
+      <div class="menu-row">
+        <div class="mr-info"><h4>Dessert Table (Up to 80 Guests)</h4><p>Grand multi-tier setup, full variety of treats, floral décor & personalized signage.</p><span class="mr-badge">Wedding Ready</span></div>
+        <div class="mr-price">From $950</div>
+      </div>
+      <div class="menu-row">
+        <div class="mr-info"><h4>Baby Shower Package</h4><p>Custom cake + 24 cupcakes + macaron tower + full theme styling.</p></div>
+        <div class="mr-price">From $280</div>
+      </div>
+      <div class="menu-row">
+        <div class="mr-info"><h4>Corporate Gifting</h4><p>Bulk orders of branded gift boxes, chocolate bars or assorted treats. Min. 20 units.</p></div>
+        <div class="mr-price">POA</div>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<!-- REVIEWS -->
+<section class="reviews">
+  <span class="section-eyebrow reveal">Happy Customers</span>
+  <h2 class="section-title reveal">Sweet <em>Words</em></h2>
+  <p class="section-desc reveal">Our greatest reward is your smile.</p>
+  <div class="reviews-grid">
+    <div class="review-card reveal">
+      <div class="stars">★★★★★</div>
+      <blockquote>"I ordered the Dubai chocolate cake for my daughter's birthday and every single guest asked where it was from. Creama is truly something special."</blockquote>
+      <div class="review-author">— Sarah M., New Orleans</div>
+    </div>
+    <div class="review-card reveal rd1">
+      <div class="stars">★★★★★</div>
+      <blockquote>"The flower cupcakes were the most beautiful thing at my baby shower. They looked like a painting and tasted even better. Will order for every occasion!"</blockquote>
+      <div class="review-author">— Rania K., Metairie</div>
+    </div>
+    <div class="review-card reveal rd2">
+      <div class="stars">★★★★★</div>
+      <blockquote>"The baklava and ka'ak brought back so many memories of home. So authentic. And the packaging is gorgeous — perfect for gifting to family."</blockquote>
+      <div class="review-author">— Omar A., Baton Rouge</div>
+    </div>
+  </div>
+</section>
+
+<!-- 
+<section class="order" id="order">
+  <div class="order-wrap">
+    <span class="section-eyebrow reveal">Get in Touch</span>
+    <h2 class="section-title reveal">Place Your <em>Order</em></h2>
+    <p class="section-desc reveal" style="margin-bottom:0;">Tell us about your occasion and we'll create something unforgettable. We respond within 24 hours.</p>
+    <form class="order-form reveal" onsubmit="handleSubmit(event)">
+      <div class="form-row">
+        <input type="text" placeholder="Your Name *" required />
+        <input type="tel" placeholder="Phone Number *" required />
+      </div>
+      <input type="email" placeholder="Email Address *" required />
+      <select required>
+        <option value="" disabled selected>What are you ordering? *</option>
+        <option>Custom Cake</option>
+        <option>Cupcakes</option>
+        <option>Dubai Chocolate / Bars</option>
+        <option>French Macarons</option>
+        <option>Baklava / Traditional Sweets</option>
+        <option>Gift Box / Arrangement</option>
+        <option>Full Dessert Table / Event</option>
+        <option>Other</option>
+      </select>
+      <input type="date" />
+      <textarea placeholder="Tell us more — theme, flavors, quantity, any special requests..."></textarea>
+      <button type="submit" class="btn-submit">Send My Order Request →</button>
+    </form>
+    <p class="order-note reveal">
+      📍 New Orleans, LA &nbsp;·&nbsp;
+      📸 <a href="https://www.instagram.com/creama.nola/" target="_blank" style="color:var(--rose);">@creama.nola</a>
+      &nbsp;·&nbsp; Orders need 5–7 days advance notice
+    </p>
+  </div>
+</section>
+-->
+
+
+<!-- FOOTER -->
+<footer id="contact">
+  <div class="footer-brand">
+    <a href="#" class="logo">Crea<span>ma</span></a>
+    <p>Artisan cakes, chocolates & sweets handcrafted with love in New Orleans. Every creation is a celebration.</p>
+    <div class="social-row">
+      <a href="https://www.instagram.com/creama.nola/" target="_blank" class="social-btn" title="Instagram">
+        <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1" fill="white" stroke="none"/></svg>
+      </a>
+    </div>
+  </div>
+  <div class="footer-col">
+    <h4>Menu</h4>
+    <ul>
+      <li><a href="#menu" onclick="showTab('cakes',null)">Custom Cakes</a></li>
+      <li><a href="#menu" onclick="showTab('cupcakes',null)">Cupcakes</a></li>
+      <li><a href="#menu" onclick="showTab('choco',null)">Chocolates</a></li>
+      <li><a href="#menu" onclick="showTab('sweets',null)">Pastries & Sweets</a></li>
+      <li><a href="#menu" onclick="showTab('gifts',null)">Gift Boxes</a></li>
+      <li><a href="#menu" onclick="showTab('events',null)">Events</a></li>
+    </ul>
+  </div>
+  <div class="footer-col">
+    <h4>Quick Links</h4>
+    <ul>
+      <li><a href="#about">Our Story</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#order">Place an Order</a></li>
+    </ul>
+  </div>
+  <div class="footer-col">
+    <h4>Contact</h4>
+    <address>
+      New Orleans, Louisiana<br><br>
+      Instagram:<br>
+      <a href="https://www.instagram.com/creama.nola/" target="_blank">@creama.nola</a>
+    </address>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 Creama. All rights reserved. New Orleans, LA.</span>
+    <span>Handcrafted with ♥</span>
+  </div>
+</footer>
+
+<script>
+  // Nav scroll effect
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 50);
+  });
+
+  // Tab menu
+  function showTab(id, btn) {
+    document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById('tab-' + id).classList.add('active');
+    if (btn) btn.classList.add('active');
+    else {
+      const btns = document.querySelectorAll('.tab-btn');
+      const ids = ['cakes','cupcakes','choco','sweets','gifts','events'];
+      const i = ids.indexOf(id);
+      if (i >= 0) btns[i].classList.add('active');
+    }
+  }
+
+  // Scroll reveal
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // Form submit
+  function handleSubmit(e) {
+    e.preventDefault();
+    const btn = e.target.querySelector('.btn-submit');
+    btn.textContent = '✓ Request received! We\'ll be in touch soon.';
+    btn.style.background = '#7aaa7a';
+    btn.disabled = true;
+  }
+</script>
+</body>
+</html>
