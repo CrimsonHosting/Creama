@@ -439,25 +439,116 @@
     }
 
     /* ── FOOTER ──────────────────────────────────────── */
+    .contact-section {
+      background: linear-gradient(180deg, var(--ivory) 0%, var(--cream) 100%);
+    }
+    .contact-wrap {
+      max-width: 920px; margin: 0 auto;
+      background: rgba(255,249,242,0.85);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 42px 38px;
+      box-shadow: 0 14px 40px rgba(90,62,43,0.08);
+    }
+    .contact-grid {
+      display: grid; grid-template-columns: 1.15fr 0.85fr;
+      gap: 24px; align-items: stretch;
+    }
+    .contact-copy h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem; font-weight: 600; color: var(--brown);
+      margin-bottom: 14px;
+    }
+    .contact-copy h3 em { color: var(--rose); font-style: italic; }
+    .contact-copy p {
+      font-size: 0.92rem; line-height: 1.8; color: var(--muted);
+      margin-bottom: 14px;
+    }
+    .contact-preference {
+      background: var(--rose-bg);
+      border: 1px solid var(--rose-lt);
+      border-radius: 18px;
+      padding: 18px 20px;
+    }
+    .contact-preference strong {
+      display: block;
+      color: var(--brown);
+      font-size: 0.88rem;
+      margin-bottom: 8px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+    .contact-actions-card {
+      background: var(--brown);
+      color: rgba(253,246,238,0.88);
+      border-radius: 22px;
+      padding: 28px 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 14px;
+    }
+    .contact-actions-card h4 {
+      font-size: 0.72rem;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: var(--rose-lt);
+      font-weight: 700;
+    }
+    .contact-actions-card p {
+      font-size: 0.88rem; line-height: 1.7;
+      color: rgba(253,246,238,0.7);
+    }
+    .contact-action-row {
+      display: flex; flex-direction: column; gap: 10px;
+    }
+    .contact-link {
+      display: inline-flex; align-items: center; justify-content: center;
+      min-height: 46px; border-radius: 999px;
+      text-decoration: none; font-size: 0.8rem; font-weight: 700;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      transition: all 0.3s;
+    }
+    .contact-link.primary {
+      background: var(--rose); color: #fff;
+      box-shadow: 0 6px 20px rgba(201,120,138,0.3);
+    }
+    .contact-link.primary:hover {
+      background: var(--rose-lt); color: var(--brown);
+      box-shadow: none;
+    }
+    .contact-link.secondary {
+      background: rgba(253,246,238,0.08);
+      border: 1px solid rgba(253,246,238,0.18);
+      color: var(--cream);
+    }
+    .contact-link.secondary:hover {
+      background: rgba(253,246,238,0.16);
+      border-color: rgba(253,246,238,0.3);
+    }
+
     footer {
       background: var(--brown);
       color: rgba(253,246,238,0.8);
       padding: 64px 64px 36px;
       display: grid;
-      grid-template-columns: 1.6fr 1fr 1fr 1fr;
+      grid-template-columns: 1fr;
       gap: 40px;
     }
     .footer-brand .logo {
       font-family: 'Playfair Display', serif;
       font-size: 2.1rem; font-weight: 700; font-style: italic;
       color: var(--cream); display: block; margin-bottom: 14px;
+      text-align: center;
     }
     .footer-brand .logo span { color: var(--rose-lt); }
     .footer-brand p {
       font-size: 0.85rem; line-height: 1.8; font-weight: 300;
-      color: rgba(253,246,238,0.6); max-width: 230px; margin-bottom: 22px;
+      color: rgba(253,246,238,0.6); max-width: 320px; margin: 0 auto 22px;
+      text-align: center;
     }
-    .social-row { display: flex; gap: 10px; }
+    .footer-brand { justify-self: center; }
+    .social-row { display: flex; gap: 10px; justify-content: center; }
     .social-btn {
       width: 36px; height: 36px; border-radius: 50%;
       background: rgba(253,246,238,0.1); border: 1px solid rgba(253,246,238,0.2);
@@ -466,6 +557,17 @@
     }
     .social-btn:hover { background: var(--rose); border-color: var(--rose); }
     .social-btn svg { width: 15px; height: 15px; stroke: currentColor; fill: none; stroke-width: 2; }
+    .contact-btn {
+      min-height: 36px;
+      padding: 0 16px;
+      border-radius: 50px;
+      background: rgba(253,246,238,0.1);
+      border: 1px solid rgba(253,246,238,0.2);
+      display: inline-flex; align-items: center; justify-content: center;
+      color: var(--cream); text-decoration: none; transition: all 0.3s;
+      font-size: 0.78rem; font-weight: 600; letter-spacing: 0.04em;
+    }
+    .contact-btn:hover { background: var(--rose); border-color: var(--rose); }
     .footer-col h4 {
       font-size: 0.65rem; letter-spacing: 0.22em; text-transform: uppercase;
       color: var(--rose-lt); margin-bottom: 18px; font-weight: 700;
@@ -480,9 +582,9 @@
     .footer-col address a { color: var(--rose-lt); text-decoration: none; }
     .footer-bottom {
       border-top: 1px solid rgba(253,246,238,0.1);
-      margin-top: 36px; padding-top: 20px;
+      margin-top: 8px; padding-top: 20px;
       grid-column: 1 / -1;
-      display: flex; justify-content: space-between;
+      display: flex; justify-content: flex-start;
       font-size: 0.72rem; color: rgba(253,246,238,0.35);
     }
 
@@ -518,6 +620,7 @@
       .perks-grid { grid-template-columns: repeat(2, 1fr); }
       .menu-grid { grid-template-columns: 1fr; }
       .reviews-grid { grid-template-columns: 1fr; }
+      .contact-grid { grid-template-columns: 1fr; }
       footer { grid-template-columns: 1fr 1fr; }
       .nav-links { display: none; }
     }
@@ -525,6 +628,7 @@
       .gallery-grid { grid-template-columns: 1fr; }
       .perks-grid { grid-template-columns: 1fr; }
       .form-row { grid-template-columns: 1fr; }
+      .contact-wrap { padding: 30px 22px; }
       footer { grid-template-columns: 1fr; }
       .footer-bottom { flex-direction: column; gap: 6px; }
     }
@@ -539,6 +643,7 @@
     <li><a href="#about">Our Story</a></li>
     <li><a href="#gallery">Gallery</a></li>
     <li><a href="#menu">Menu</a></li>
+    <li><a href="#contact-page">Contact</a></li>
   </ul>
 </nav>
 
@@ -738,44 +843,44 @@
   <p class="section-desc reveal">Handcrafted to order. Every price reflects our commitment to freshness, quality, and artistry.</p>
 
   <div class="tab-bar reveal">
-    <button class="tab-btn active" onclick="showTab('cakes',this)">Custom Cakes</button>
+    <button class="tab-btn active" onclick="showTab('cakes',this)">Cake</button>
     <button class="tab-btn" onclick="showTab('cupcakes',this)">Cupcakes</button>
-    <button class="tab-btn" onclick="showTab('choco',this)">Chocolates</button>
-    <button class="tab-btn" onclick="showTab('sweets',this)">Pastries & Sweets</button>
+    <button class="tab-btn" onclick="showTab('choco',this)">Chocolate</button>
+    <button class="tab-btn" onclick="showTab('sweets',this)">Pastries & Traditional Sweets</button>
     <button class="tab-btn" onclick="showTab('gifts',this)">Gift Boxes</button>
-    <button class="tab-btn" onclick="showTab('events',this)">Events</button>
+    <button class="tab-btn" onclick="showTab('events',this)">Catering</button>
   </div>
 
   <!-- CAKES -->
   <div class="tab-panel active" id="tab-cakes">
     <div class="panel-intro">
-      <h3>Custom Celebration Cakes</h3>
-      <p>Fully designed around your vision — flavors, tiers, themes, and florals tailored to your occasion.<br>Minimum 5 days notice required. Rush orders accepted based on availability.</p>
+      <h3>Cake Collection</h3>
+      <p>Elegant centerpieces and signature specialties, crafted to order with refined finishes and premium flavors.</p>
     </div>
     <div class="menu-grid">
       <div class="menu-row">
-        <div class="mr-info"><h4>Single-Tier Custom Cake</h4><p>Serves 10–15. Pick your flavor, filling & design. Hand-piped buttercream finish.</p><span class="mr-badge">Most Popular</span></div>
-        <div class="mr-price">From $120</div>
+        <div class="mr-info"><h4>Two Tier Cake</h4><p>Custom-designed celebration cake with a polished, elevated presentation.</p></div>
+        <div class="mr-price">From $150</div>
       </div>
       <div class="menu-row">
-        <div class="mr-info"><h4>Two-Tier Custom Cake</h4><p>Serves 20–30. Fully custom design, multiple flavor options, fondant or buttercream.</p></div>
-        <div class="mr-price">From $220</div>
+        <div class="mr-info"><h4>Three Tier Cake</h4><p>A grand statement cake designed for larger celebrations and special events.</p></div>
+        <div class="mr-price">From $200</div>
       </div>
       <div class="menu-row">
-        <div class="mr-info"><h4>Three-Tier Custom Cake</h4><p>Serves 40–55. A statement showpiece for weddings, quinceañeras & large events.</p><span class="mr-badge">Weddings</span></div>
-        <div class="mr-price">From $380</div>
+        <div class="mr-info"><h4>Cheesecake</h4><p>Available in Dubai chocolate, pistachio, or original.</p></div>
+        <div class="mr-price">From $50</div>
       </div>
       <div class="menu-row">
-        <div class="mr-info"><h4>Dubai Chocolate Cake</h4><p>Signature pistachio Dubai chocolate layers, kunafa crunch filling & chocolate ganache drip.</p><span class="mr-badge">Signature</span></div>
-        <div class="mr-price">From $160</div>
+        <div class="mr-info"><h4>San Sebastian Cheesecake</h4><p>Rich, beautifully caramelized cheesecake with a luxurious finish.</p><span class="mr-badge">Signature Item</span></div>
+        <div class="mr-price">From $50</div>
       </div>
       <div class="menu-row">
-        <div class="mr-info"><h4>Fresh Berry Chantilly</h4><p>Light vanilla sponge, whipped cream cheese frosting, fresh seasonal berries on top.</p></div>
-        <div class="mr-price">From $130</div>
+        <div class="mr-info"><h4>Rectangular Cake</h4><p>Perfect for gatherings, styled with the same custom touch as our celebration cakes.</p></div>
+        <div class="mr-price">From $150</div>
       </div>
       <div class="menu-row">
-        <div class="mr-info"><h4>Floral Buttercream Cake</h4><p>Stunning hand-piped floral arrangement in your chosen color palette.</p><span class="mr-badge">Best Seller</span></div>
-        <div class="mr-price">From $145</div>
+        <div class="mr-info"><h4>Honey Cake</h4><p>Delicately layered and softly spiced for a classic, comforting finish.</p><span class="mr-badge">Signature Item</span></div>
+        <div class="mr-price">From $60</div>
       </div>
     </div>
   </div>
@@ -783,25 +888,25 @@
   <!-- CUPCAKES -->
   <div class="tab-panel" id="tab-cupcakes">
     <div class="panel-intro">
-      <h3>Cupcakes & Mini Treats</h3>
-      <p>Each one hand-crafted. Beautiful as centerpieces or individual favors. Minimum order: 12 pieces.</p>
+      <h3>Cupcakes</h3>
+      <p>Decorative, customizable, and beautifully finished for dessert tables, gifting, and celebrations of every size.</p>
     </div>
     <div class="menu-grid">
       <div class="menu-row">
-        <div class="mr-info"><h4>Flower Garden Cupcakes</h4><p>Hand-piped Korean-style buttercream flowers, each unique. Pearl accents available.</p><span class="mr-badge">Signature</span></div>
-        <div class="mr-price">$6.50 each</div>
+        <div class="mr-info"><h4>Custom Cake Pops</h4><p>Minimum order: 10.</p></div>
+        <div class="mr-price">From $2.50 each</div>
       </div>
       <div class="menu-row">
-        <div class="mr-info"><h4>Classic Decorated Cupcakes</h4><p>Swirled buttercream with custom toppers, sprinkles & themed decorations.</p></div>
-        <div class="mr-price">$4.50 each</div>
+        <div class="mr-info"><h4>Classic Decorated Cupcakes</h4><p>Flavors vary: red velvet, vanilla, chocolate, strawberry. More flavors available upon request.</p></div>
+        <div class="mr-price">From $4 each</div>
       </div>
       <div class="menu-row">
-        <div class="mr-info"><h4>Dubai Chocolate Cupcakes</h4><p>Rich chocolate base filled with pistachio cream, topped with kunafa drizzle.</p></div>
-        <div class="mr-price">$7 each</div>
+        <div class="mr-info"><h4>Floral Cupcakes</h4><p>Artfully piped for a refined, garden-inspired presentation.</p><span class="mr-badge">Signature Item</span></div>
+        <div class="mr-price">From $4.50 each</div>
       </div>
       <div class="menu-row">
-        <div class="mr-info"><h4>Cake Pops</h4><p>Moist cake mixed with frosting, dipped in chocolate. Fully customizable.</p></div>
-        <div class="mr-price">$4 each</div>
+        <div class="mr-info"><h4>Custom Decoration Cupcakes</h4><p>Tailored styling for birthdays, showers, themed parties, and special events.</p></div>
+        <div class="mr-price">From $4.50 each</div>
       </div>
     </div>
   </div>
@@ -809,33 +914,21 @@
   <!-- CHOCOLATE -->
   <div class="tab-panel" id="tab-choco">
     <div class="panel-intro">
-      <h3>Artisan Chocolates</h3>
-      <p>Handcrafted from premium couverture chocolate. Custom flavors and packaging available.</p>
+      <h3>Chocolate</h3>
+      <p>Handcrafted chocolate selections with custom shapes, fillings, and elegant presentation options.</p>
     </div>
     <div class="menu-grid">
       <div class="menu-row">
-        <div class="mr-info"><h4>Dubai Chocolate Bar</h4><p>Viral pistachio-kunafa filled bar in dark, milk, or white chocolate. Gold-dusted finish.</p><span class="mr-badge">Trending</span></div>
-        <div class="mr-price">$18 / bar</div>
+        <div class="mr-info"><h4>Dubai Chocolate Bar</h4><p>Available in different sizes.</p></div>
+        <div class="mr-price">From $5 to $13</div>
       </div>
       <div class="menu-row">
-        <div class="mr-info"><h4>Artisan Chocolate Bar</h4><p>Choose your toppings: rose petals, pistachio, sea salt, caramel, or classic.</p></div>
-        <div class="mr-price">$14 / bar</div>
+        <div class="mr-info"><h4>Custom Filled Chocolate Pieces</h4><p>Shapes vary, with optional wrapping for favors and gifting.</p></div>
+        <div class="mr-price">From $1 to $3 each</div>
       </div>
       <div class="menu-row">
-        <div class="mr-info"><h4>Arabic Coffee Chocolates</h4><p>White & dark chocolate shaped as dallah & finjan. A gorgeous gift set.</p><span class="mr-badge">Gift Favorite</span></div>
-        <div class="mr-price">$22 / set (10 pcs)</div>
-      </div>
-      <div class="menu-row">
-        <div class="mr-info"><h4>Gourmet Truffles Box</h4><p>Assorted truffles in seasonal flavors. Available in 12 or 24 piece boxes.</p></div>
-        <div class="mr-price">From $28</div>
-      </div>
-      <div class="menu-row">
-        <div class="mr-info"><h4>Chocolate Bar Gift Set</h4><p>3 artisan bars gift-wrapped — perfect for any occasion or corporate gifting.</p></div>
-        <div class="mr-price">$40 / set</div>
-      </div>
-      <div class="menu-row">
-        <div class="mr-info"><h4>Molded Chocolate Figurines</h4><p>Custom shapes for events — hearts, logos, flowers & more.</p></div>
-        <div class="mr-price">POA</div>
+        <div class="mr-info"><h4>Tray of 50 Custom Chocolates</h4><p>Pricing may vary depending on occasion.</p></div>
+        <div class="mr-price">From $150</div>
       </div>
     </div>
   </div>
@@ -844,32 +937,40 @@
   <div class="tab-panel" id="tab-sweets">
     <div class="panel-intro">
       <h3>Pastries & Traditional Sweets</h3>
-      <p>French classics and beloved Middle Eastern traditions — made with pure authenticity.</p>
+      <p>A balanced collection of refined pastries and beloved traditional sweets, thoughtfully prepared for sharing and gifting.</p>
     </div>
     <div class="menu-grid">
       <div class="menu-row">
-        <div class="mr-info"><h4>French Macarons</h4><p>Delicate almond meringue shells in rotating seasonal flavors. Min. 12 pieces.</p><span class="mr-badge">Fan Favorite</span></div>
-        <div class="mr-price">$3.50 each</div>
-      </div>
-      <div class="menu-row">
-        <div class="mr-info"><h4>Baklava</h4><p>Crisp phyllo, roasted pistachios, rose-infused honey syrup. Made fresh per order.</p></div>
-        <div class="mr-price">$28 / dozen</div>
-      </div>
-      <div class="menu-row">
-        <div class="mr-info"><h4>Petit Fours</h4><p>Bite-sized layered cakes finished in chocolate glaze. Assorted flavors. Min 20 pcs.</p></div>
-        <div class="mr-price">$3 each</div>
-      </div>
-      <div class="menu-row">
-        <div class="mr-info"><h4>Ka'ak Ring Cookies</h4><p>Traditional sesame & nigella seed ring cookies — a family recipe. Perfect for Eid.</p><span class="mr-badge">Seasonal</span></div>
-        <div class="mr-price">$18 / dozen</div>
-      </div>
-      <div class="menu-row">
-        <div class="mr-info"><h4>Mamoul</h4><p>Date, walnut, or pistachio filled semolina cookies — a Middle Eastern classic.</p></div>
-        <div class="mr-price">$20 / dozen</div>
-      </div>
-      <div class="menu-row">
-        <div class="mr-info"><h4>Kunafa</h4><p>Golden shredded pastry, creamy cheese filling, fragrant rose water syrup.</p></div>
+        <div class="mr-info"><h4>Tart</h4><p>Toppings include pastry cream and assorted fruit. Multiple sizes available.</p><span class="mr-badge">Signature Item</span></div>
         <div class="mr-price">From $35</div>
+      </div>
+      <div class="menu-row">
+        <div class="mr-info"><h4>Walnut Cookie with Filling</h4><p>Traditional, rich, and ideal for gifting by the pound.</p></div>
+        <div class="mr-price">From $30 per pound</div>
+      </div>
+      <div class="menu-row">
+        <div class="mr-info"><h4>French Macarons</h4><p>Delicate, colorful, and perfect for dessert tables or custom assortments.</p></div>
+        <div class="mr-price">From $2 each</div>
+      </div>
+      <div class="menu-row">
+        <div class="mr-info"><h4>Petit Fours</h4><p>Elegant bite-sized sweets for gatherings, trays, and gift boxes.</p><span class="mr-badge">Signature Item</span></div>
+        <div class="mr-price">From $25 per pound</div>
+      </div>
+      <div class="menu-row">
+        <div class="mr-info"><h4>Ka'ak Ring Cookies</h4><p>Traditional ring-shaped cookies sold by the pound.</p></div>
+        <div class="mr-price">From $25 per pound</div>
+      </div>
+      <div class="menu-row">
+        <div class="mr-info"><h4>Trifles</h4><p>Flavors may include berries, mango, and more.</p></div>
+        <div class="mr-price">From $25</div>
+      </div>
+      <div class="menu-row">
+        <div class="mr-info"><h4>Cakesicles</h4><p>Beautifully finished cake treats that are easy to customize for any occasion.</p></div>
+        <div class="mr-price">From $4 each</div>
+      </div>
+      <div class="menu-row">
+        <div class="mr-info"><h4>Mini Trifles</h4><p>Available by custom quote based on flavor and order details.</p></div>
+        <div class="mr-price">TBD</div>
       </div>
     </div>
   </div>
@@ -877,51 +978,43 @@
   <!-- GIFTS -->
   <div class="tab-panel" id="tab-gifts">
     <div class="panel-intro">
-      <h3>Gift Boxes & Arrangements</h3>
-      <p>Beautifully curated and elegantly packaged. Perfect for weddings, holidays & corporate gifting.</p>
+      <h3>Gift Boxes</h3>
+      <p>Curated dessert gifting with elevated presentation, tailored to the scale and style of your order.</p>
     </div>
     <div class="menu-grid">
       <div class="menu-row">
-        <div class="mr-info"><h4>Sweet Treats Box (Small)</h4><p>A curated mix of macarons, petit fours & chocolates. Serves 2–3.</p></div>
-        <div class="mr-price">$35</div>
+        <div class="mr-info"><h4>Sweet Treats Box (Small)</h4><p>Pricing is determined based on your selected assortment and order details.</p></div>
+        <div class="mr-price">TBD</div>
       </div>
       <div class="menu-row">
-        <div class="mr-info"><h4>Luxury Gift Box (Large)</h4><p>Premium assortment: Dubai bars, truffles, baklava & cookies. Serves 6–8.</p><span class="mr-badge">Best Gifting</span></div>
-        <div class="mr-price">$75</div>
+        <div class="mr-info"><h4>Luxury Gift Box (Large)</h4><p>Pricing is determined based on your selected assortment and order details.</p></div>
+        <div class="mr-price">TBD</div>
       </div>
       <div class="menu-row">
-        <div class="mr-info"><h4>3-Tier Dessert Tower</h4><p>A breathtaking stacked display of mixed sweets, chocolates & cookies. Floral décor included.</p><span class="mr-badge">Showstopper</span></div>
-        <div class="mr-price">From $110</div>
+        <div class="mr-info"><h4>Dessert Tower</h4><p>Pricing is determined based on your selected assortment and event styling.</p></div>
+        <div class="mr-price">TBD</div>
       </div>
       <div class="menu-row">
-        <div class="mr-info"><h4>Wedding Favor Boxes</h4><p>Custom branded mini boxes of your chosen sweets. Personalized ribbon & tag included.</p></div>
-        <div class="mr-price">From $8 each</div>
+        <div class="mr-info"><h4>Wedding Favor Boxes</h4><p>Pricing is determined based on quantity, packaging, and occasion details.</p></div>
+        <div class="mr-price">TBD</div>
       </div>
     </div>
   </div>
 
-  <!-- EVENTS -->
+  <!-- Catering -->
   <div class="tab-panel" id="tab-events">
     <div class="panel-intro">
-      <h3>Events & Dessert Catering</h3>
-      <p>We design breathtaking dessert experiences for weddings, baby showers, birthdays & corporate events across New Orleans.</p>
+      <h3>Catering</h3>
+      <p>Complete dessert experiences styled for celebrations, with coordinated sweets and a polished presentation.</p>
     </div>
     <div class="menu-grid">
       <div class="menu-row">
-        <div class="mr-info"><h4>Dessert Table (Up to 30 Guests)</h4><p>Styled table with custom cake, cupcakes, macarons, chocolates & signage. Setup included.</p></div>
-        <div class="mr-price">From $450</div>
+        <div class="mr-info"><h4>Dessert Package</h4><p>For baby showers, birthdays, engagements, and similar events. Includes: custom cake, cupcakes, pastry of choice (petit fours, macarons, cakesicles, or cake pops), and full theme styling.</p></div>
+        <div class="mr-price">From $300</div>
       </div>
       <div class="menu-row">
-        <div class="mr-info"><h4>Dessert Table (Up to 80 Guests)</h4><p>Grand multi-tier setup, full variety of treats, floral décor & personalized signage.</p><span class="mr-badge">Wedding Ready</span></div>
-        <div class="mr-price">From $950</div>
-      </div>
-      <div class="menu-row">
-        <div class="mr-info"><h4>Baby Shower Package</h4><p>Custom cake + 24 cupcakes + macaron tower + full theme styling.</p></div>
-        <div class="mr-price">From $280</div>
-      </div>
-      <div class="menu-row">
-        <div class="mr-info"><h4>Corporate Gifting</h4><p>Bulk orders of branded gift boxes, chocolate bars or assorted treats. Min. 20 units.</p></div>
-        <div class="mr-price">POA</div>
+        <div class="mr-info"><h4>Dessert Table</h4><p>Includes: custom cake, cupcakes, multiple pastries of your choice, and chocolates.</p></div>
+        <div class="mr-price">From $400</div>
       </div>
     </div>
   </div>
@@ -988,6 +1081,33 @@
 </section>
 -->
 
+<section class="contact-section" id="contact-page">
+  <span class="section-eyebrow reveal">Contact</span>
+  <h2 class="section-title reveal">Let's <em>Connect</em></h2>
+  <p class="section-desc reveal">We'd love to hear about your order, event, or custom dessert idea.</p>
+
+  <div class="contact-wrap reveal">
+    <div class="contact-grid">
+      <div class="contact-copy">
+        <h3>Reach out for your next <em>celebration</em></h3>
+        <p>Whether you're planning a birthday, baby shower, engagement, wedding favor order, or a custom dessert table, we're happy to help guide the best fit for your occasion.</p>
+        <div class="contact-preference">
+          <strong>Preferred Communication</strong>
+          <p>Instagram DMs are the best way to reach us, since we can't always be available by phone throughout the day. Messaging us on Instagram is the fastest and most reliable way to discuss availability, design ideas, and order details.</p>
+        </div>
+      </div>
+      <div class="contact-actions-card">
+        <h4>Get In Touch</h4>
+        <p>Send us a DM for quicker replies, inspiration photos, and custom order conversations. You can also call if needed.</p>
+        <div class="contact-action-row">
+          <a href="https://www.instagram.com/creama.nola/" target="_blank" class="contact-link primary">Message on Instagram</a>
+          <a href="tel:+15043279383" class="contact-link secondary">Call (504) 327 - 9383</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 
 <!-- FOOTER -->
 <footer id="contact">
@@ -998,37 +1118,11 @@
       <a href="https://www.instagram.com/creama.nola/" target="_blank" class="social-btn" title="Instagram">
         <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1" fill="white" stroke="none"/></svg>
       </a>
+      <a href="tel:+15043279383" class="contact-btn" title="Call Creama">(504) 327 - 9383</a>
     </div>
   </div>
-  <div class="footer-col">
-    <h4>Menu</h4>
-    <ul>
-      <li><a href="#menu" onclick="showTab('cakes',null)">Custom Cakes</a></li>
-      <li><a href="#menu" onclick="showTab('cupcakes',null)">Cupcakes</a></li>
-      <li><a href="#menu" onclick="showTab('choco',null)">Chocolates</a></li>
-      <li><a href="#menu" onclick="showTab('sweets',null)">Pastries & Sweets</a></li>
-      <li><a href="#menu" onclick="showTab('gifts',null)">Gift Boxes</a></li>
-      <li><a href="#menu" onclick="showTab('events',null)">Events</a></li>
-    </ul>
-  </div>
-  <div class="footer-col">
-    <h4>Quick Links</h4>
-    <ul>
-      <li><a href="#about">Our Story</a></li>
-      <li><a href="#gallery">Gallery</a></li>
-    </ul>
-  </div>
-  <div class="footer-col">
-    <h4>Contact</h4>
-    <address>
-      New Orleans, Louisiana<br><br>
-      Instagram:<br>
-      <a href="https://www.instagram.com/creama.nola/" target="_blank">@creama.nola</a>
-    </address>
-  </div>
   <div class="footer-bottom">
-    <span>© 2025 Creama. All rights reserved. New Orleans, LA.</span>
-    <span>Handcrafted with ♥</span>
+    <span>© 2026 Creama. All rights reserved. New Orleans, LA.</span>
   </div>
 </footer>
 
