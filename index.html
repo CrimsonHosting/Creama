@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Creama — Artisan Sweets & Custom Cakes | New Orleans</title>
+  <title>Creama</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Nunito:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
@@ -13,13 +14,9 @@
       --ivory:     #fff9f2;
       --beige:     #f5e9d9;
       --beige2:    #eedfc8;
-      --rose:      #c9788a;
-      --rose-lt:   #e8b4be;
+      --rose:      #be5f73;
+      --rose-lt:   #dfa0ae;
       --rose-bg:   #fdf0f2;
-      --sage:      #8aaa8a;
-      --sage-lt:   #c5d9c5;
-      --gold:      #c9954a;
-      --gold-lt:   #e8c48a;
       --brown:     #2d1a0e;
       --brown2:    #5a3e2b;
       --muted:     #9a7e6a;
@@ -94,14 +91,14 @@
       background-size: cover; background-position: center;
       filter: brightness(0.55) saturate(0.8);
     }
-    .hm1 { background-image: url('graduation-cake.png'); }
-    .hm2 { background-image: url('flower-cupcakes.png'); }
-    .hm3 { background-image: url('macarons.png'); }
-    .hm4 { background-image: url('baby-shower-cake.png'); }
-    .hm5 { background-image: url('mini-tarts-petit-fours-assortment.jpg'); }
-    .hm6 { background-image: url('dubai-chocolate.png'); }
-    .hm7 { background-image: url('petit-fours.png'); }
-    .hm8 { background-image: url('kaak.png'); }
+    .hm1 { background-image: url('graduation-cake.webp'); }
+    .hm2 { background-image: url('flower-cupcakes.webp'); }
+    .hm3 { background-image: url('macarons.webp'); }
+    .hm4 { background-image: url('baby-shower-cake.webp'); }
+    .hm5 { background-image: url('mini-tarts-petit-fours-assortment.webp'); }
+    .hm6 { background-image: url('dubai-chocolate.webp'); }
+    .hm7 { background-image: url('petit-fours.webp'); }
+    .hm8 { background-image: url('kaak.webp'); }
 
     .hero-overlay {
       position: absolute; inset: 0;
@@ -299,7 +296,7 @@
 
     /* ── PERKS STRIP ─────────────────────────────────── */
     .perks {
-      background: var(--rose);
+      background: var(--brown);
       padding: 56px 64px;
     }
     .perks-grid {
@@ -375,27 +372,6 @@
       white-space: nowrap; margin-left: 20px; padding-top: 2px;
     }
 
-    /* ── REVIEWS ─────────────────────────────────────── */
-    .reviews { background: var(--beige); }
-    .reviews-grid {
-      display: grid; grid-template-columns: repeat(3, 1fr);
-      gap: 20px; max-width: 1080px; margin: 0 auto;
-    }
-    .review-card {
-      background: var(--ivory); border-radius: 16px;
-      padding: 36px 32px;
-      box-shadow: 0 4px 24px rgba(90,62,43,0.07);
-      transition: transform 0.3s;
-    }
-    .review-card:hover { transform: translateY(-4px); }
-    .stars { color: var(--rose); font-size: 0.9rem; letter-spacing: 0.1em; margin-bottom: 14px; }
-    .review-card blockquote {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.05rem; font-style: italic; font-weight: 300;
-      color: var(--brown2); line-height: 1.8; margin-bottom: 20px;
-    }
-    .review-author { font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--rose); font-weight: 700; }
-
     /* ── ORDER ───────────────────────────────────────── */
     .order {
       background: var(--cream); text-align: center;
@@ -440,7 +416,7 @@
 
     /* ── FOOTER ──────────────────────────────────────── */
     .contact-section {
-      background: linear-gradient(180deg, var(--ivory) 0%, var(--cream) 100%);
+      background: var(--beige);
     }
     .contact-wrap {
       max-width: 920px; margin: 0 auto;
@@ -451,8 +427,8 @@
       box-shadow: 0 14px 40px rgba(90,62,43,0.08);
     }
     .contact-grid {
-      display: grid; grid-template-columns: 1.15fr 0.85fr;
-      gap: 24px; align-items: stretch;
+      display: grid; grid-template-columns: 1fr 1.3fr;
+      gap: 32px; align-items: start;
     }
     .contact-copy h3 {
       font-family: 'Playfair Display', serif;
@@ -462,48 +438,13 @@
     .contact-copy h3 em { color: var(--rose); font-style: italic; }
     .contact-copy p {
       font-size: 0.92rem; line-height: 1.8; color: var(--muted);
-      margin-bottom: 14px;
+      margin-bottom: 20px;
     }
-    .contact-preference {
-      background: var(--rose-bg);
-      border: 1px solid var(--rose-lt);
-      border-radius: 18px;
-      padding: 18px 20px;
-    }
-    .contact-preference strong {
-      display: block;
-      color: var(--brown);
-      font-size: 0.88rem;
-      margin-bottom: 8px;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-    }
-    .contact-actions-card {
-      background: var(--brown);
-      color: rgba(253,246,238,0.88);
-      border-radius: 22px;
-      padding: 28px 24px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      gap: 14px;
-    }
-    .contact-actions-card h4 {
-      font-size: 0.72rem;
-      letter-spacing: 0.24em;
-      text-transform: uppercase;
-      color: var(--rose-lt);
-      font-weight: 700;
-    }
-    .contact-actions-card p {
-      font-size: 0.88rem; line-height: 1.7;
-      color: rgba(253,246,238,0.7);
-    }
-    .contact-action-row {
+    .contact-channels {
       display: flex; flex-direction: column; gap: 10px;
     }
     .contact-link {
-      display: inline-flex; align-items: center; justify-content: center;
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
       min-height: 46px; border-radius: 999px;
       text-decoration: none; font-size: 0.8rem; font-weight: 700;
       letter-spacing: 0.12em; text-transform: uppercase;
@@ -518,13 +459,80 @@
       box-shadow: none;
     }
     .contact-link.secondary {
-      background: rgba(253,246,238,0.08);
-      border: 1px solid rgba(253,246,238,0.18);
+      background: var(--brown);
+      border: 1px solid rgba(45,26,14,0.15);
       color: var(--cream);
     }
     .contact-link.secondary:hover {
-      background: rgba(253,246,238,0.16);
-      border-color: rgba(253,246,238,0.3);
+      background: rgba(45,26,14,0.75);
+    }
+    /* ── CONTACT FORM ── */
+    .contact-form-card {
+      background: var(--brown);
+      border-radius: 24px;
+      padding: 34px 30px;
+      display: flex; flex-direction: column; gap: 18px;
+    }
+    .contact-form-card h4 {
+      font-size: 0.72rem; letter-spacing: 0.24em;
+      text-transform: uppercase; color: var(--rose-lt);
+      font-weight: 700; margin-bottom: 2px;
+    }
+    .contact-form-card > p {
+      font-size: 0.87rem; line-height: 1.65;
+      color: rgba(253,246,238,0.65); margin-top: -8px;
+    }
+    .form-field {
+      display: flex; flex-direction: column; gap: 6px;
+    }
+    .form-field label {
+      font-size: 0.73rem; letter-spacing: 0.1em; text-transform: uppercase;
+      font-weight: 600; color: rgba(253,246,238,0.55);
+    }
+    .form-field input,
+    .form-field select,
+    .form-field textarea {
+      width: 100%; box-sizing: border-box;
+      background: rgba(253,246,238,0.07);
+      border: 1px solid rgba(253,246,238,0.15);
+      border-radius: 12px;
+      padding: 12px 16px;
+      color: var(--cream);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.88rem;
+      outline: none;
+      transition: border-color 0.25s, background 0.25s;
+      resize: none;
+    }
+    .form-field input::placeholder,
+    .form-field textarea::placeholder {
+      color: rgba(253,246,238,0.3);
+    }
+    .form-field select option { background: var(--brown); color: var(--cream); }
+    .form-field input:focus,
+    .form-field select:focus,
+    .form-field textarea:focus {
+      border-color: var(--rose-lt);
+      background: rgba(253,246,238,0.11);
+    }
+    .form-row-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .form-submit {
+      display: inline-flex; align-items: center; justify-content: center;
+      min-height: 48px; border-radius: 999px;
+      background: var(--rose); color: #fff; border: none;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.8rem; font-weight: 700;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      cursor: pointer; transition: all 0.3s;
+      box-shadow: 0 6px 20px rgba(201,120,138,0.35);
+      margin-top: 4px;
+    }
+    .form-submit:hover {
+      background: var(--rose-lt); color: var(--brown); box-shadow: none;
+    }
+    .form-success {
+      display: none; text-align: center; padding: 16px 0;
+      color: var(--rose-lt); font-size: 0.95rem; line-height: 1.6;
     }
 
     footer {
@@ -619,8 +627,9 @@
       .gallery-grid .gi { height: 240px; }
       .perks-grid { grid-template-columns: repeat(2, 1fr); }
       .menu-grid { grid-template-columns: 1fr; }
-      .reviews-grid { grid-template-columns: 1fr; }
+
       .contact-grid { grid-template-columns: 1fr; }
+      .form-row-2 { grid-template-columns: 1fr; }
       footer { grid-template-columns: 1fr 1fr; }
       .nav-links { display: none; }
     }
@@ -673,7 +682,7 @@
 <!-- ABOUT -->
 <section class="about" id="about">
   <div class="about-img">
-    <img src="pink-gold-eid-favor-tray-2.jpg" alt="Creama flower cupcakes" />
+    <img src="pink-gold-eid-favor-tray-2.webp" alt="Creama flower cupcakes" />
     <div class="about-img-overlay"></div>
   </div>
   <div class="about-body reveal">
@@ -711,63 +720,63 @@
   <div class="gallery-grid">
 
     <div class="gi tall reveal">
-      <img src="graduation-cake.png" alt="Graduation Cake" />
+      <img src="graduation-cake.webp" alt="Graduation Cake" />
       <div class="gi-overlay">
         <div><h3>Graduation Cake</h3><span>Custom Cakes</span></div>
       </div>
     </div>
 
     <div class="gi reveal rd1">
-      <img src="baby-shower-cake.png" alt="Baby Shower Cake" />
+      <img src="baby-shower-cake.webp" alt="Baby Shower Cake" />
       <div class="gi-overlay">
         <div><h3>Baby Shower Cake</h3><span>Custom Cakes</span></div>
       </div>
     </div>
 
     <div class="gi reveal rd2">
-      <img src="macarons.png" alt="French Macarons" />
+      <img src="macarons.webp" alt="French Macarons" />
       <div class="gi-overlay">
         <div><h3>French Macarons</h3><span>Gift Boxes</span></div>
       </div>
     </div>
 
     <div class="gi reveal rd2">
-      <img src="sage-green-rose-macarons.jpg" alt="Green Rose Macarons" />
+      <img src="sage-green-rose-macarons.webp" alt="Green Rose Macarons" />
       <div class="gi-overlay">
         <div><h3>Green Rose Macarons</h3><span>Gift Boxes</span></div>
       </div>
     </div>
 
     <div class="gi wide reveal rd3">
-      <img src="Screenshot 2026-04-14 180710.png" alt="Wedding Celebration Cheesecake" />
+      <img src="Screenshot 2026-04-14 180710.webp" alt="Wedding Celebration Cheesecake" />
       <div class="gi-overlay">
         <div><h3>Wedding Celebration Cheesecake</h3><span>Custom Cakes</span></div>
       </div>
     </div>
 
     <div class="gi tall reveal">
-      <img src="petit-fours.png" alt="Petit Fours" />
+      <img src="petit-fours.webp" alt="Petit Fours" />
       <div class="gi-overlay">
         <div><h3>Petit Fours</h3><span>Gift Boxes</span></div>
       </div>
     </div>
 
     <div class="gi tall reveal rd1">
-      <img src="flower-cupcakes.png" alt="Flower Cupcakes" />
+      <img src="flower-cupcakes.webp" alt="Flower Cupcakes" />
       <div class="gi-overlay">
         <div><h3>Floral Cupcakes</h3><span>Cupcakes</span></div>
       </div>
     </div>
 
     <div class="gi reveal rd2">
-      <img src="dubai-chocolate.png" alt="Dubai Chocolate" />
+      <img src="dubai-chocolate.webp" alt="Dubai Chocolate" />
       <div class="gi-overlay">
         <div><h3>Dubai Chocolate</h3><span>Signature Chocolates</span></div>
       </div>
     </div>
 
     <div class="gi reveal rd3">
-      <img src="kaak.png" alt="Ka'ak Ring Cookies" />
+      <img src="kaak.webp" alt="Ka'ak Ring Cookies" />
       <div class="gi-overlay">
         <div><h3>Ka'ak</h3><span>Traditional Sweets</span></div>
       </div>
@@ -775,21 +784,21 @@
 
 
     <div class="gi reveal rd1">
-      <img src="nautical-cake.png" alt="Nautical Baby Cake" />
+      <img src="nautical-cake.webp" alt="Nautical Baby Cake" />
       <div class="gi-overlay">
         <div><h3>Nautical Baby Cake</h3><span>Custom Cakes</span></div>
       </div>
     </div>
 
     <div class="gi reveal rd2">
-      <img src="dessert-tower.png" alt="3-Tier Dessert Tower" />
+      <img src="dessert-tower.webp" alt="3-Tier Dessert Tower" />
       <div class="gi-overlay">
         <div><h3>Dessert Tower</h3><span>Gift Arrangements</span></div>
       </div>
     </div>
 
     <div class="gi reveal rd3">
-      <img src="choco-bars.png" alt="Chocolate Bars" />
+      <img src="choco-bars.webp" alt="Chocolate Bars" />
       <div class="gi-overlay">
         <div><h3>Artisan Chocolate Bars</h3><span>Chocolates</span></div>
       </div>
@@ -806,28 +815,28 @@
         <svg viewBox="0 0 24 24"><path d="M12 22s-8-4.5-8-11.8A8 8 0 0 1 12 2a8 8 0 0 1 8 8.2c0 7.3-8 11.8-8 11.8z"/></svg>
       </div>
       <h3>Premium Ingredients</h3>
-      <p>Only the finest, freshest ingredients go into every creation — no shortcuts, ever.</p>
+      <p>Only the finest, freshest ingredients go into every creation, no shortcuts, ever.</p>
     </div>
     <div class="perk reveal rd1">
       <div class="perk-icon">
         <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
       </div>
       <h3>Made Fresh to Order</h3>
-      <p>Never frozen, never pre-made. Each order is crafted fresh just for you.</p>
+      <p>Never frozen, never premade. Each order is crafted fresh just for you.</p>
     </div>
     <div class="perk reveal rd2">
       <div class="perk-icon">
         <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
       </div>
       <h3>Fully Customizable</h3>
-      <p>Your vision, your flavors, your design — we bring every idea to life.</p>
+      <p>Your vision, your flavors, your design, we bring every idea to life.</p>
     </div>
     <div class="perk reveal rd3">
       <div class="perk-icon">
         <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
       </div>
       <h3>New Orleans Proud</h3>
-      <p>Born in NOLA — infused with the city's love of celebration and community.</p>
+      <p>Born in NOLA, infused with the city's love of celebration and community.</p>
     </div>
   </div>
 </section>
@@ -1018,28 +1027,6 @@
 </section>
 
 <!-- REVIEWS -->
-<section class="reviews">
-  <span class="section-eyebrow reveal">Happy Customers</span>
-  <h2 class="section-title reveal">Sweet <em>Words</em></h2>
-  <p class="section-desc reveal">Our greatest reward is your smile.</p>
-  <div class="reviews-grid">
-    <div class="review-card reveal">
-      <div class="stars">★★★★★</div>
-      <blockquote>"I ordered the Dubai chocolate cake for my daughter's birthday and every single guest asked where it was from. Creama is truly something special."</blockquote>
-      <div class="review-author">— Sarah M., New Orleans</div>
-    </div>
-    <div class="review-card reveal rd1">
-      <div class="stars">★★★★★</div>
-      <blockquote>"The flower cupcakes were the most beautiful thing at my baby shower. They looked like a painting and tasted even better. Will order for every occasion!"</blockquote>
-      <div class="review-author">— Rania K., Metairie</div>
-    </div>
-    <div class="review-card reveal rd2">
-      <div class="stars">★★★★★</div>
-      <blockquote>"The baklava and ka'ak brought back so many memories of home. So authentic. And the packaging is gorgeous — perfect for gifting to family."</blockquote>
-      <div class="review-author">— Omar A., Baton Rouge</div>
-    </div>
-  </div>
-</section>
 
 <!-- 
 <section class="order" id="order">
@@ -1084,22 +1071,66 @@
 
   <div class="contact-wrap reveal">
     <div class="contact-grid">
+
+      <!-- LEFT: reach-out info + quick links -->
       <div class="contact-copy">
         <h3>Reach out for your next <em>celebration</em></h3>
-        <p>Whether you're planning a birthday, baby shower, engagement, wedding favor order, or a custom dessert table, we're happy to help guide the best fit for your occasion.</p>
-        <div class="contact-preference">
-          <strong>Preferred Communication</strong>
-          <p>Instagram DMs are the best way to reach us, since we can't always be available by phone throughout the day. Messaging us on Instagram is the fastest and most reliable way to discuss availability, design ideas, and order details.</p>
+        <p>Whether you're planning a birthday, baby shower, engagement, wedding favor order, or a custom dessert table, we're here to help make it sweet.</p>
+        <p>Send us a message on this screen for the fastest reply, or slide into our Instagram DMs.</p>
+        <div class="contact-channels">
+          <a href="https://www.instagram.com/creama.nola/" target="_blank" class="contact-link primary">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"/></svg>
+            Message on Instagram
+          </a>
+          
         </div>
       </div>
-      <div class="contact-actions-card">
-        <h4>Get In Touch</h4>
-        <p>Send us a DM for quicker replies, inspiration photos, and custom order conversations. You can also call if needed.</p>
-        <div class="contact-action-row">
-          <a href="https://www.instagram.com/creama.nola/" target="_blank" class="contact-link primary">Message on Instagram</a>
-          <a href="tel:+15043279383" class="contact-link secondary">Call (504) 327 - 9383</a>
+
+      <!-- RIGHT: message form -->
+      <div class="contact-form-card">
+        <h4>Send Us a Message</h4>
+        <p>Fill this out and we'll get back to you as soon as we can.</p>
+
+        <form id="contact-form" action="https://formspree.io/f/xvzdalkn" method="POST">
+          <div style="display:flex;flex-direction:column;gap:14px;">
+            <div class="form-row-2">
+              <div class="form-field">
+                <label for="cf-name">Your Name</label>
+                <input type="text" id="cf-name" name="name" placeholder="e.g. Sarah M." required>
+              </div>
+              <div class="form-field">
+                <label for="cf-phone">Your Phone Number</label>
+                <input type="tel" id="cf-phone" name="phone" placeholder="(504) 000-0000" required>
+              </div>
+            </div>
+
+            <div class="form-field">
+              <label for="cf-occasion">What Are You Looking For?</label>
+              <select id="cf-occasion" name="occasion" required>
+                <option value="" disabled selected>Select a category…</option>
+                <option>Cake</option>
+                <option>Cupcakes</option>
+                <option>Chocolate</option>
+                <option>Pastries & Traditional Sweets</option>
+                <option>Gift Boxes</option>
+                <option>Catering</option>
+              </select>
+            </div>
+
+            <div class="form-field">
+              <label for="cf-message">Tell Us More</label>
+              <textarea id="cf-message" name="message" rows="4" placeholder="Flavors, colors, date, guest count — anything helps!" required></textarea>
+            </div>
+
+            <button type="submit" class="form-submit">Send Message →</button>
+          </div>
+        </form>
+
+        <div class="form-success" id="form-success">
+          ✦ Thank you! We'll be in touch soon.
         </div>
       </div>
+
     </div>
   </div>
 </section>
@@ -1114,7 +1145,7 @@
       <a href="https://www.instagram.com/creama.nola/" target="_blank" class="social-btn" title="Instagram">
         <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1" fill="white" stroke="none"/></svg>
       </a>
-      <a href="tel:+15043279383" class="contact-btn" title="Call Creama">(504) 327 - 9383</a>
+      
     </div>
   </div>
   <div class="footer-bottom">
@@ -1139,24 +1170,4 @@
       const btns = document.querySelectorAll('.tab-btn');
       const ids = ['cakes','cupcakes','choco','sweets','gifts','events'];
       const i = ids.indexOf(id);
-      if (i >= 0) btns[i].classList.add('active');
-    }
-  }
-
-  // Scroll reveal
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-  }, { threshold: 0.08 });
-  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-
-  // Form submit
-  function handleSubmit(e) {
-    e.preventDefault();
-    const btn = e.target.querySelector('.btn-submit');
-    btn.textContent = '✓ Request received! We\'ll be in touch soon.';
-    btn.style.background = '#7aaa7a';
-    btn.disabled = true;
-  }
-</script>
-</body>
-</html>
+      if (i >= 0) btns[i].classList.add(
